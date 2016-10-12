@@ -4,14 +4,16 @@ renderGame
 )
   where
     import Graphics.Gloss
-    import Data
     import Data.Map.Strict
+    import Data
+    import Physics
 
     renderCharacter :: SpriteResource -> Ship -> Picture
-    renderCharacter sr c = translate x y $ bmp
-      where (x,y) = c_position c
-            action = c_action c
-            currentSprite = c_currentSprite c
+    renderCharacter sr c = rotate degree $ translate x y $ bmp
+      where degree = radToDegree $ s_direction c
+            (x,y) = s_position c
+            action = s_action c
+            currentSprite = s_currentSprite c
             spriteName = nextSprite action currentSprite
             bmp = sr!spriteName
 

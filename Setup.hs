@@ -2,8 +2,10 @@ module Setup(
 window,
 background,
 fps,
-moveSpeed,
-initialState
+initialState,
+rotateSpeed,
+maxSpeed,
+acceleration
 )
   where
     import qualified Graphics.Gloss as Gloss
@@ -16,21 +18,22 @@ initialState
     background = Gloss.white
 
     initialState :: WorldState
-    initialState = Ship {
+    initialState = WorldState {
       ws_player = Ship {
         s_position = (0, 0),
-        s_speed = 0,
-        s_acceleration = 1.5::Float,
-        s_accelerationTime = 0
-        s_direction = pi/2,
-        s_action = None,
-        s_currentSprite = Ship,
+        s_speed = 0::Float,
+        s_acceleration = 0::Float,
+        s_accelerationTime = 0::Float,
+        s_direction = 4*pi/3,
+        s_action = NoAction,
+        s_currentSprite = ShipSprite
       },
       ws_keyPressed = []
     }
 
-    fps = 60::Int
-    rotateSpeed = 0.2::Float
+    fps = 30::Int
+    rotateSpeed = 0.05::Float
+    acceleration = 1.5::Float
     maxSpeed = 255::Float
 
     --v1 = v0 + a * t

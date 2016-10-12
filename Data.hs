@@ -1,9 +1,14 @@
 module Data(
-Character(..),
+Ship(..),
 WorldState(..),
 Action(..),
 Sprite(..),
-SpriteResource
+SpriteResource,
+Acceleration,
+Time,
+Velocity,
+Angle,
+VelocityVector
 )
   where
     import qualified Graphics.Gloss.Data.Picture as Gloss
@@ -19,8 +24,8 @@ SpriteResource
     type SpriteResource = Map.Map Sprite Gloss.Picture
     type VelocityVector = (Angle, Velocity)
 
-    data Action = None deriving (Eq)
-    data Sprite = Ship | Background deriving (Eq,Ord)
+    data Action = NoAction deriving (Eq)
+    data Sprite = ShipSprite | Background deriving (Eq,Ord)
     data Rotation = None | Clockwise | CounterClockwise
 
     data Ship = Ship {
@@ -34,6 +39,6 @@ SpriteResource
     }
 
     data WorldState = WorldState {
-      ws_playerShip :: Ship,
+      ws_player :: Ship,
       ws_keyPressed :: [Gloss.Key]
     }

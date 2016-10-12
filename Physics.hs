@@ -1,11 +1,12 @@
 module Physics(
 newSpeed,
-newVelocityVector
+newVelocityVector,
+radToDegree
 )
   where
     import Data
 
-    type Quadrant = First | Second | Third | Forth
+    data Quadrant = First | Second | Third | Forth
 
     radToDegree :: Float -> Float
     radToDegree rad = rad / pi * 360
@@ -21,9 +22,11 @@ newVelocityVector
             v2y = v2 * sin a2
             vx' = v1x + v2x
             vy' = v1y + v2y
+            quadrant = if vx' > 0 then if vy' > 0 then First else Forth
+                       else if vy' > 0 then Second else Third
             v' = sqrt (vx'^2 + vy'^2)
             sinA' = vy' / v'
-            a' = asin sinA'
+            a' = radIn2Pi quadrant $ asin sinA'
 
     radIn2Pi :: Quadrant -> Float -> Float
     radIn2Pi quad rad = case quad of First -> rad
