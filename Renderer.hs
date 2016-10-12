@@ -7,7 +7,7 @@ renderGame
     import Data
     import Data.Map.Strict
 
-    renderCharacter :: SpriteResource -> Character -> Picture
+    renderCharacter :: SpriteResource -> Ship -> Picture
     renderCharacter sr c = translate x y $ bmp
       where (x,y) = c_position c
             action = c_action c
@@ -21,4 +21,4 @@ renderGame
       renderCharacter sr (ws_player ws)]
 
     nextSprite :: Action -> Sprite -> Sprite
-    nextSprite _ _ = undefined
+    nextSprite _ s = s

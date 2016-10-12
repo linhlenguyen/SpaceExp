@@ -16,19 +16,21 @@ initialState
     background = Gloss.white
 
     initialState :: WorldState
-    initialState = WorldState {
-      ws_player = Character {
-        c_position = (-100, -50),
-        c_action = Stop,
-        c_currentSprite = FaceRight,
-        c_rotation = None
+    initialState = Ship {
+      ws_player = Ship {
+        s_position = (0, 0),
+        s_speed = 0,
+        s_acceleration = 1.5::Float,
+        s_accelerationTime = 0
+        s_direction = pi/2,
+        s_action = None,
+        s_currentSprite = Ship,
       },
       ws_keyPressed = []
     }
 
     fps = 60::Int
-    moveSpeed = 3::Float
-    acceleration = 1.5::Float
-    rotateSpeed = 2::Float
+    rotateSpeed = 0.2::Float
+    maxSpeed = 255::Float
 
     --v1 = v0 + a * t
