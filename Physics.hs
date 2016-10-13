@@ -4,12 +4,18 @@ newVelocityVector,
 radToDegree
 )
   where
+    import Graphics.Gloss.Data.Point as Gloss
     import Data
 
     data Quadrant = First | Second | Third | Forth
 
     radToDegree :: Float -> Float
     radToDegree rad = rad / pi * 360
+
+    newPos :: Gloss.Point -> VelocityVector -> Time -> Gloss.Point
+    newPos (x,y) (a,v) t = (x', y')
+      where x' = x
+            y' = y
 
     newSpeed :: Velocity -> Acceleration -> Time -> Velocity
     newSpeed v0 a t = v0 + a * t
