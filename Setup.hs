@@ -4,8 +4,8 @@ background,
 fps,
 initialState,
 rotateSpeed,
-maxSpeed,
-acceleration
+acceleration,
+decayAmount
 )
   where
     import qualified Graphics.Gloss as Gloss
@@ -21,19 +21,19 @@ acceleration
     initialState = WorldState {
       ws_player = Ship {
         s_position = (0, 0),
-        s_speed = 0::Float,
-        s_acceleration = 0::Float,
-        s_accelerationTime = 0::Float,
-        s_direction = 4*pi/3,
         s_action = NoAction,
-        s_currentSprite = ShipSprite
+        s_currentSprite = ShipSprite,
+        s_direction = 0,
+        s_accelerationVector = (0, 0),
+        s_velocityVector = (0,0),
+        s_maxSpeed = 3::Float
       },
       ws_keyPressed = []
     }
 
     fps = 30::Int
     rotateSpeed = 0.05::Float
-    acceleration = 1.5::Float
-    maxSpeed = 255::Float
+    acceleration = 0.5::Float
+    decayAmount = 0::Float
 
     --v1 = v0 + a * t

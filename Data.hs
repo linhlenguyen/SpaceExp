@@ -4,9 +4,6 @@ WorldState(..),
 Action(..),
 Sprite(..),
 SpriteResource,
-Acceleration,
-Time,
-Velocity,
 Angle,
 VelocityVector
 )
@@ -17,12 +14,9 @@ VelocityVector
     import qualified Graphics.Gloss.Interface.Pure.Game as Gloss
     import qualified Data.Map.Lazy as Map
 
-    type Time = Float
-    type Acceleration = Float
-    type Velocity = Float
     type Angle = Float -- 0 -> 360
     type SpriteResource = Map.Map Sprite Gloss.Picture
-    type VelocityVector = (Angle, Velocity)
+    type VelocityVector = (Float, Float) -- vx, vy
 
     data Action = NoAction deriving (Eq)
     data Sprite = ShipSprite | Background deriving (Eq,Ord)
@@ -30,12 +24,12 @@ VelocityVector
 
     data Ship = Ship {
       s_position :: Gloss.Point,
-      s_speed :: Velocity,
-      s_acceleration :: Acceleration,
-      s_accelerationTime :: Time,
       s_direction :: Angle,
+      s_accelerationVector :: VelocityVector,
+      s_velocityVector :: VelocityVector,
       s_action :: Action,
-      s_currentSprite :: Sprite
+      s_currentSprite :: Sprite,
+      s_maxSpeed :: Float
     }
 
     data WorldState = WorldState {
