@@ -1,4 +1,4 @@
-module Data(
+module Data.Data(
 Ship(..),
 WorldState(..),
 Action(..),

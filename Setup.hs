@@ -9,7 +9,7 @@ decayAmount
 )
   where
     import qualified Graphics.Gloss as Gloss
-    import Data
+    import Data.Data
 
     window :: Gloss.Display
     window = Gloss.InWindow "Window" (720,480) (10,10)
@@ -32,8 +32,8 @@ decayAmount
     }
 
     fps = 30::Int
-    rotateSpeed = 0.05::Float
+    rotateSpeed = 0.08::Float
     acceleration = 0.5::Float
-    decayAmount = 0::Float
+    decayAmount = 0.25::Float
 
     --v1 = v0 + a * t

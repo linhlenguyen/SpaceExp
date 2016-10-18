@@ -1,5 +1,4 @@
 --Randomly generate new map from a list of tiles.
-
 module TileMap()
   where
     import Graphics.Gloss

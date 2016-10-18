@@ -6,7 +6,7 @@ velocityDecay
 )
   where
     import Graphics.Gloss.Data.Point as Gloss
-    import Data
+    import Data.Data
 
     radToDegree :: Float -> Float
     radToDegree rad = rad / pi * 180
@@ -18,8 +18,8 @@ velocityDecay
 
     velocityDecay :: Float -> VelocityVector -> VelocityVector
     velocityDecay decay (vx, vy) = (vx' , vy')
-      where vx' = if vx > 0 then vx - decay else vx + decay
-            vy' = if vy > 0 then vy - decay else vy + decay
+      where vx' = if vx - decay > 0 then vx - decay else if vx + decay < 0 then vx + decay else 0
+            vy' = if vy - decay > 0 then vy - decay else if vy + decay < 0 then vy + decay else 0
 
     newVelocityVector :: Float -> VelocityVector -> VelocityVector -> VelocityVector
     newVelocityVector maxSpeed (vx1,vy1) (vx2,vy2) = (vx, vy)

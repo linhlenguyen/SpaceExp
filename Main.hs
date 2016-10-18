@@ -5,7 +5,7 @@ module Main(main)
     import qualified Codec.BMP as Codec
     import Setup
     import Renderer
-    import Data
+    import Data.Data
     import Resources
     import Physics
     import qualified Data.Map.Lazy as Map

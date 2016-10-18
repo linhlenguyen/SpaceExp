@@ -3,7 +3,7 @@ loadResource
 )
   where
     import qualified Graphics.Gloss.Data.Picture as Gloss
-    import Data
+    import Data.Data
 
     bmpTagMap :: [(Sprite, FilePath)]
     bmpTagMap = [(ShipSprite, "bmp/ship.bmp")]
