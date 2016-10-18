@@ -1,4 +1,4 @@
-module Projectile(
+module Data.Projectile(
 Projectile(..)
 )
   where

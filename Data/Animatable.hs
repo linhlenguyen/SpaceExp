@@ -1,4 +1,4 @@
-module Animatable(
+module Data.Animatable(
 
 )
   where
