@@ -5,10 +5,11 @@ module Main(main)
     import qualified Codec.BMP as Codec
     import Setup
     import Renderer
-    import Data.Data
+    import Data.WorldState
     import Resources
     import Physics
     import qualified Data.Map.Lazy as Map
+    import Data.Ship
 
     handleKey :: Key -> WorldState -> WorldState
     handleKey key ws =
@@ -16,6 +17,7 @@ module Main(main)
         (SpecialKey KeyLeft) -> ws { ws_player = player { s_direction = direction' - rotateSpeed } }
         (SpecialKey KeyRight) -> ws { ws_player = player { s_direction = direction' + rotateSpeed } }
         (SpecialKey KeyUp) -> ws { ws_player = player { s_accelerationVector = (vx,vy) } }
+        (Char 'r') -> initialState
         _ -> ws
         where player = ws_player ws
               direction = s_direction player
@@ -58,7 +60,7 @@ module Main(main)
             pos = s_position player
             vv = s_velocityVector player
             av = s_accelerationVector player
-            vv' = velocityDecay $ newVelocityVector 6 gravityVector $ newVelocityVector (s_maxSpeed player) av vv
+            vv' = velocityDecay $ newVelocityVector 120 gravityVector $ newVelocityVector (s_maxSpeed player) av vv
             pos' = newPos pos vv'
             ws' = ws { ws_player = player { s_position = pos', s_velocityVector = vv' } }
 

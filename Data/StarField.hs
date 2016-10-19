@@ -1,4 +1,4 @@
-module StarField(
+module Data.StarField(
 isAtBottom,
 isAtTop,
 isAtRight,
@@ -19,4 +19,4 @@ movementBox
     isAtRight x = x >= (fst movementBox)/2
 
     isAtLeft :: Float -> Bool
-    isAtLeft x = x <= -(snd movementBox)/2
+    isAtLeft x = x <= -(fst movementBox)/2

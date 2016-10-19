@@ -4,5 +4,8 @@ Renderable(..)
   where
     import Graphics.Gloss
 
+    type ResourceTag = String
+    type ResourceMapper = [(ResourceTag, Picture)]
+
     class Renderable a where
-      render :: a -> Picture
+      render :: a -> ResourceMapper -> Picture

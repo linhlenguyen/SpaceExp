@@ -6,6 +6,8 @@ renderGame
     import Graphics.Gloss
     import Data.Map.Strict
     import Data.Data
+    import Data.Ship
+    import Data.WorldState
     import Physics
 
     renderCharacter :: SpriteResource -> Ship -> Picture
@@ -30,7 +32,7 @@ renderGame
     renderGame sr ws = pictures $
       --sr!Background:
       renderCharacter sr (ws_player ws)
-      :[] --(Prelude.map (color black) (Prelude.map line $ speedAndAccelerationVector (ws_player ws)))
+      : (Prelude.map (color black) (Prelude.map line $ speedAndAccelerationVector (ws_player ws)))
 
 
     nextSprite :: Action -> Sprite -> Sprite

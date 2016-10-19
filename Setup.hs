@@ -4,11 +4,12 @@ background,
 fps,
 initialState,
 rotateSpeed,
-acceleration,
-movementBox
+acceleration
 )
   where
     import qualified Graphics.Gloss as Gloss
+    import Data.WorldState
+    import Data.Ship
     import Data.Data
 
     window :: Gloss.Display
@@ -28,10 +29,11 @@ movementBox
       s_position = (0, 0),
       s_action = NoAction,
       s_currentSprite = ShipSprite,
-      s_direction = 0,
+      s_direction = pi/2,
       s_accelerationVector = (0, 0),
       s_velocityVector = (0,0),
-      s_maxSpeed = 6::Float
+      s_maxSpeed = 6::Float,
+      s_collisionPath = undefined
     }
 
     fps = 30::Int
@@ -40,6 +42,3 @@ movementBox
 
     screen :: (Int, Int)
     screen = (720, 480)
-
-    movementBox :: (Float, Float)
-    movementBox = (360,240)

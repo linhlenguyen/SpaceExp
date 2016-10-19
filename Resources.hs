@@ -6,7 +6,7 @@ loadResource
     import Data.Data
 
     bmpTagMap :: [(Sprite, FilePath)]
-    bmpTagMap = [(ShipSprite, "bmp/ship.bmp")]
+    bmpTagMap = [(ShipSprite, "bmp/ship2.bmp")]
 
     loadResource :: IO [(Sprite, Gloss.Picture)]
     loadResource = loadResource' bmpTagMap

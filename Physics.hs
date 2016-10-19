@@ -8,7 +8,7 @@ gravityVector
   where
     import Graphics.Gloss.Data.Point as Gloss
     import Data.Data
-    import StarField
+    import Data.StarField
 
     radToDegree :: Float -> Float
     radToDegree rad = rad / pi * 180
