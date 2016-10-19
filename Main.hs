@@ -58,7 +58,7 @@ module Main(main)
             pos = s_position player
             vv = s_velocityVector player
             av = s_accelerationVector player
-            vv' = velocityDecay decayAmount $ newVelocityVector (s_maxSpeed player) vv av
+            vv' = velocityDecay $ newVelocityVector 6 gravityVector $ newVelocityVector (s_maxSpeed player) av vv
             pos' = newPos pos vv'
             ws' = ws { ws_player = player { s_position = pos', s_velocityVector = vv' } }
 
