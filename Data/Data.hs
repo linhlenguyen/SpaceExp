@@ -11,6 +11,7 @@ VelocityVector
     type SpriteResource = Map.Map Sprite Gloss.Picture
     type VelocityVector = (Float, Float) -- vx, vy
 
-    data Action = NoAction deriving (Eq)
-    data Sprite = ShipSprite | Background deriving (Eq,Ord)
     data Rotation = None | Clockwise | CounterClockwise
+    data Action = NoAction deriving (Eq)
+
+    data Sprite = ShipSprite | Background deriving (Eq,Ord)
