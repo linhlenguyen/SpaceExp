@@ -8,6 +8,7 @@ Ship(..)
     import qualified Graphics.Gloss.Data.Picture as Gloss
     import Data.Data
     import Data.Renderable
+    import Physics.Collision
 
     type Angle = Float -- 0 -> 360
 

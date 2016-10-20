@@ -4,8 +4,8 @@ CollisionPath(..),
 Collidable(..)
 )
   where
-    import qualified Graphics.Gloss.Data.Point as Point
-    import qualified Graphics.Gloss.Data.Picture as Point
+    import qualified Graphics.Gloss.Data.Point as Gloss
+    import qualified Graphics.Gloss.Data.Picture as Gloss
 
     type Radius = Float
 
