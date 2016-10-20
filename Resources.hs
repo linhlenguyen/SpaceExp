@@ -5,7 +5,7 @@ loadResource
     import qualified Graphics.Gloss.Data.Picture as Gloss
     import Data.Data
 
-    data SpriteTag = SpriteTag String deriving (Eq)
+    type SpriteTag = String
 
     allSprites :: [(SpriteTag, FilePath)]
     allSprites = undefined --Collect all sprites info from modules

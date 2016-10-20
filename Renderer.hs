@@ -1,5 +1,4 @@
 module Renderer(
-renderCharacter,
 renderGame
 )
   where
@@ -8,16 +7,7 @@ renderGame
     import Data.Data
     import Data.Ship
     import Data.WorldState
-    import Physics.Physics
-
-    renderCharacter :: SpriteResource -> Ship -> Picture
-    renderCharacter sr ship = translate x y $ rotate degree $ bmp
-      where degree = radToDegree $ -(s_direction ship)
-            (x,y) = (s_position ship)
-            action = s_action ship
-            currentSprite = s_currentSprite ship
-            spriteName = nextSprite action currentSprite
-            bmp = sr!spriteName
+    import Data.Renderable
 
     speedAndAccelerationVector :: Ship -> [Path]
     speedAndAccelerationVector ship = velocityPath:accelerationPath:[]
@@ -31,9 +21,8 @@ renderGame
     renderGame :: SpriteResource -> WorldState -> Picture
     renderGame sr ws = pictures $
       --sr!Background:
-      renderCharacter sr (ws_player ws)
+      render (ws_player ws) sr
       : (Prelude.map (color black) (Prelude.map line $ speedAndAccelerationVector (ws_player ws)))
-
 
     nextSprite :: Action -> Sprite -> Sprite
     nextSprite _ s = s

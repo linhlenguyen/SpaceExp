@@ -4,11 +4,14 @@ module Data.Ship(
 Ship(..)
 )
   where
+    import Graphics.Gloss
     import qualified Graphics.Gloss.Data.Point as Gloss
     import qualified Graphics.Gloss.Data.Picture as Gloss
     import Data.Data
-    import Data.Renderable
     import Physics.Collision
+    import Data.Renderable
+    import Data.Map.Strict
+    import Physics.Physics
 
     type Angle = Float -- 0 -> 360
 
@@ -24,6 +27,13 @@ Ship(..)
     }
 
     instance Renderable Ship where
-      render a b = undefined
+      render ship sr = translate x y $ rotate degree $ bmp
+        where degree = radToDegree $ -(s_direction ship)
+              (x,y) = (s_position ship)
+              action = s_action ship
+              currentSprite = s_currentSprite ship
+              spriteName = nextSprite action currentSprite
+              bmp = sr!spriteName
 
-    data WorldObject = forall a. (Renderable a) => WorldObject a
+    nextSprite :: Action -> Sprite -> Sprite
+    nextSprite _ s = s

@@ -3,9 +3,7 @@ Renderable(..)
 )
   where
     import Graphics.Gloss
-
-    type ResourceTag = String
-    type ResourceMapper = [(ResourceTag, Picture)]
+    import Data.Data
 
     class Renderable a where
-      render :: a -> ResourceMapper -> Picture
+      render :: a -> SpriteResource -> Picture
