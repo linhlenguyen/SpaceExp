@@ -5,6 +5,11 @@ loadResource
     import qualified Graphics.Gloss.Data.Picture as Gloss
     import Data.Data
 
+    data SpriteTag = SpriteTag String deriving (Eq)
+
+    allSprites :: [(SpriteTag, FilePath)]
+    allSprites = undefined --Collect all sprites info from modules
+
     bmpTagMap :: [(Sprite, FilePath)]
     bmpTagMap = [(ShipSprite, "bmp/ship2.bmp")]
 
