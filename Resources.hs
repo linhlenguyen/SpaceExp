@@ -1,5 +1,6 @@
 module Resources(
-loadResource
+loadResource,
+SpriteTag
 )
   where
     import qualified Graphics.Gloss.Data.Picture as Gloss
