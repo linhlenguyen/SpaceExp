@@ -8,7 +8,7 @@ renderGame
     import Data.Data
     import Data.Ship
     import Data.WorldState
-    import Physics
+    import Physics.Physics
 
     renderCharacter :: SpriteResource -> Ship -> Picture
     renderCharacter sr ship = translate x y $ rotate degree $ bmp

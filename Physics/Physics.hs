@@ -1,4 +1,4 @@
-module Physics(
+module Physics.Physics(
 newVelocityVector,
 radToDegree,
 newPos,

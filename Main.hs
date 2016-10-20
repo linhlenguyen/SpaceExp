@@ -7,7 +7,7 @@ module Main(main)
     import Renderer
     import Data.WorldState
     import Resources
-    import Physics
+    import Physics.Physics
     import qualified Data.Map.Lazy as Map
     import Data.Ship
 
