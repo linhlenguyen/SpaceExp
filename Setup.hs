@@ -24,18 +24,6 @@ acceleration
       ws_keyPressed = []
     }
 
-    newShip :: Ship
-    newShip = Ship {
-      s_position = (0, 0),
-      s_action = NoAction,
-      s_currentSprite = ShipSprite,
-      s_direction = pi/2,
-      s_accelerationVector = (0, 0),
-      s_velocityVector = (0,0),
-      s_maxSpeed = 6::Float,
-      s_collisionPath = undefined
-    }
-
     fps = 30::Int
     rotateSpeed = 0.08::Float
     acceleration = 2::Float

@@ -1,6 +1,5 @@
 module Data.Data(
-Action(..),
-Sprite(..),
+SpriteTag,
 SpriteResource,
 VelocityVector
 )
@@ -8,10 +7,6 @@ VelocityVector
     import qualified Graphics.Gloss.Data.Picture as Gloss
     import qualified Data.Map.Lazy as Map
 
-    type SpriteResource = Map.Map Sprite Gloss.Picture
+    type SpriteTag = String
+    type SpriteResource = Map.Map SpriteTag Gloss.Picture
     type VelocityVector = (Float, Float) -- vx, vy
-
-    data Rotation = None | Clockwise | CounterClockwise
-    data Action = NoAction deriving (Eq)
-
-    data Sprite = ShipSprite | Background deriving (Eq,Ord)
