@@ -6,9 +6,10 @@ SpriteTag
     import qualified Graphics.Gloss.Data.Picture as Gloss
     import Data.Data
     import Data.Ship
+    import Data.Moon
 
     allSprites :: [(SpriteTag, FilePath)]
-    allSprites = shipSpriteMap
+    allSprites = shipSpriteMap ++ moonSpriteMap
 
     loadResource :: IO [(SpriteTag, Gloss.Picture)]
     loadResource = loadResource' allSprites

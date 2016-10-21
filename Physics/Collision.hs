@@ -9,15 +9,15 @@ Collidable(..)
 
     type Radius = Float
 
-    data CollisionPath = Circle Gloss.Point Radius | Polygon Gloss.Path
+    data CollisionPath = CollisionCircle Gloss.Point Radius | CollisionPolygon Gloss.Path
 
     class Collidable c where
       detectCollision :: c -> c -> Bool
 
     instance Collidable CollisionPath where
-      detectCollision (Circle (x,y) r) (Polygon (p:ps)) = undefined
-      detectCollision p@(Polygon _) c@(Circle _ _) = detectCollision c p
-      detectCollision (Polygon (p1:ps1)) (Polygon (p2:ps2)) = undefined
+      detectCollision (CollisionCircle (x,y) r) (CollisionPolygon (p:ps)) = undefined
+      detectCollision p@(CollisionPolygon _) c@(CollisionCircle _ _) = detectCollision c p
+      detectCollision (CollisionPolygon (p1:ps1)) (CollisionPolygon (p2:ps2)) = undefined
 
     --project a Point onto an axis defined by 2 points and returns its value
     projectTo :: Gloss.Point -> (Gloss.Point, Gloss.Point) -> Float

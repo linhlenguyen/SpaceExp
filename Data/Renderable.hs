@@ -13,11 +13,12 @@ Renderable(..)
       position :: a -> Point
       direction :: a -> Float
       sprite :: a -> SpriteTag
-      isStatic :: a -> Bool
-      isStatic a = False
       render :: a -> SpriteResource -> Picture
-      render a sr = if (isStatic a) then bmp else translate x y $ rotate degree $ bmp
+      render a sr = pictures $ (p : (renderAdditional a sr))
         where degree = radToDegree $ -(direction a)
               (x,y) = (position a)
               spriteTag = sprite a
               bmp = sr!spriteTag
+              p = translate x y $ rotate degree $ bmp
+      renderAdditional :: a -> SpriteResource -> [Picture]
+      renderAdditional _ _ = []

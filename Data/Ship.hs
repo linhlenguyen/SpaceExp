@@ -45,6 +45,7 @@ accelerateShip
       position ship = s_position ship
       direction ship = s_direction ship
       sprite ship = nextSprite $ s_currentSprite ship
+      renderAdditional ship sr = [color white $ line $ drawVelocityVector ship]
 
     nextSprite :: SpriteTag -> SpriteTag
     nextSprite s = s
@@ -58,11 +59,10 @@ accelerateShip
             pos' = newPos pos vv'
             ship' = ship { s_position = pos', s_velocityVector = vv' }
 
-    speedAndAccelerationVector :: Ship -> [Gloss.Path]
-    speedAndAccelerationVector ship = velocityPath:accelerationPath:[]
+    drawVelocityVector :: Ship -> Gloss.Path
+    drawVelocityVector ship = velocityPath
       where shipPosition@(x,y) = s_position ship
             (vx,vy) = s_velocityVector ship
             (ax,ay) = s_accelerationVector ship
             direction = s_direction ship
             velocityPath = shipPosition : (x+vx*10, y+vy*10) : []
-            accelerationPath = shipPosition : (x + (10 * cos direction), y + (10 * sin direction)) : []

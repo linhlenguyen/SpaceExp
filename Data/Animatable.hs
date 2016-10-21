@@ -6,4 +6,3 @@ Animatable(..)
 
     class Animatable a where
       nextSprite :: Sprite -> Sprite
-      playAnimation ::
