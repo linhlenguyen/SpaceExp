@@ -14,4 +14,4 @@ A game in Haskell
 3. [Parallax Scrolling](https://gamedevelopment.tutsplus.com/tutorials/parallax-scrolling-a-simple-effective-way-to-add-depth-to-a-2d-game--cms-21510)
 4. [Haskell Gloss Basics](http://andrew.gibiansky.com/blog/haskell/haskell-gloss/)
 
-![Cover](http://github.com/linhlenguyen/SpaceJump/bmp/cover.jpg)
+![Cover](https://github.com/linhlenguyen/SpaceJump/blob/master/bmp/cover.jpg)
