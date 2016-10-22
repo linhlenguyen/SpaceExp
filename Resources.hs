@@ -4,6 +4,7 @@ SpriteTag
 )
   where
     import qualified Graphics.Gloss.Data.Picture as Gloss
+    import qualified Graphics.Gloss.Data.Bitmap as Gloss
     import Data.Data
     import Data.Ship
     import Data.Moon

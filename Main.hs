@@ -2,7 +2,7 @@ module Main(main)
   where
     import Graphics.Gloss.Interface.Pure.Game
     import qualified Codec.BMP as Codec
-    import Setup
+    import GameSetup
     import Renderer
     import Data.WorldState
     import Resources

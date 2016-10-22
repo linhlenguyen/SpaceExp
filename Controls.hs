@@ -7,7 +7,7 @@ keyHold
     import Graphics.Gloss.Interface.Pure.Game
     import Data.WorldState
     import Data.Ship
-    import Setup
+    import GameSetup
 
     handleKey :: Key -> WorldState -> WorldState
     handleKey key ws =
