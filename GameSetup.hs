@@ -2,7 +2,10 @@ module GameSetup(
 window,
 background,
 fps,
-initialState
+initialState,
+decayAmount,
+gravityVector,
+movementBox
 )
   where
     import qualified Graphics.Gloss as Gloss
@@ -28,3 +31,12 @@ initialState
 
     screen :: (Int, Int)
     screen = (720, 480)
+
+    decayAmount :: Float
+    decayAmount = 0.25::Float
+
+    gravityVector :: VelocityVector
+    gravityVector = (0, 0)
+
+    movementBox :: (Float, Float)
+    movementBox = (360,240)
