@@ -11,5 +11,6 @@ WorldState(..)
       ws_player :: Ship,
       ws_moon :: Moon,
       ws_backgroundPos :: Gloss.Point,
-      ws_keyPressed :: [Gloss.Key]
+      ws_keyPressed :: [Gloss.Key],
+      ws_gravityVector :: [Gloss.Point]
     }

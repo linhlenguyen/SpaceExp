@@ -22,7 +22,8 @@ initialState
       ws_player = newShip,
       ws_moon = newMoon,
       ws_backgroundPos = (0,0),
-      ws_keyPressed = []
+      ws_keyPressed = [],
+      ws_gravityVector = [(0,0),(0,0)]
     }
 
     fps = 30::Int

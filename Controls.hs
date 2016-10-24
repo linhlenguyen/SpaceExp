@@ -1,6 +1,6 @@
 module Controls(
 handleKeyPress,
-keyHold
+keyEventHandling
 )
   where
     import Graphics.Gloss
@@ -49,7 +49,7 @@ keyHold
             player = ws_player ws
             ws' = ws { ws_keyPressed = filter (\k -> not (k == key)) keys}
 
-    keyHold :: WorldState -> WorldState
-    keyHold ws = ws'
+    keyEventHandling :: WorldState -> WorldState
+    keyEventHandling ws = ws'
       where keys = ws_keyPressed ws
             ws' = foldr handleKey ws keys

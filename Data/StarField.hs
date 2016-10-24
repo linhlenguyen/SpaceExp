@@ -56,7 +56,7 @@ updateBGPosition
       translate 0 0 $ starTile sr]
 
     starTile :: SpriteResource -> Picture
-    starTile sr = pictures [ color white $ rectangleWire screenWidth screenHeight,
+    starTile sr = pictures [ --color white $ rectangleWire screenWidth screenHeight,
       sr!"StarField"]
 
     movementBox :: (Float, Float)

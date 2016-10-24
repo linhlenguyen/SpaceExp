@@ -15,9 +15,14 @@ Collidable(..)
       detectCollision :: c -> c -> Bool
 
     instance Collidable CollisionPath where
-      detectCollision (CollisionCircle (x,y) r) (CollisionPolygon (p:ps)) = undefined
+      detectCollision circle@(CollisionCircle (x,y) r) polygon@(CollisionPolygon (p:ps)) = circlePolygonCollision circle polygon
       detectCollision p@(CollisionPolygon _) c@(CollisionCircle _ _) = detectCollision c p
       detectCollision (CollisionPolygon (p1:ps1)) (CollisionPolygon (p2:ps2)) = undefined
+
+    circlePolygonCollision :: CollisionPath -> CollisionPath -> Bool
+    circlePolygonCollision (CollisionCircle (x,y) r) (CollisionPolygon (p:ps)) = collision
+      where
+        collision = False
 
     --project a Point onto an axis defined by 2 points and returns its value
     projectTo :: Gloss.Point -> (Gloss.Point, Gloss.Point) -> Float
