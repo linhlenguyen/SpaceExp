@@ -11,14 +11,17 @@ module Main(main)
     import Data.Ship
     import Controls
 
-    processPhysics :: WorldState -> WorldState
-    processPhysics ws = ws'
+    stepGame :: WorldState -> WorldState
+    stepGame ws = ws'
       where player = ws_player ws
-            player' = accelerateShip player
-            ws' = ws { ws_player = player' }
+            (player',(shiftX,shiftY)) = accelerateShip player
+            (bgx, bgy) = ws_backgroundPos ws
+            bgPos' = (bgx - shiftX, bgy - shiftY)
+            ws' = ws { ws_player = player',
+                       ws_backgroundPos = bgPos'}
 
     update :: Float -> WorldState -> WorldState
-    update _ = keyHold . processPhysics
+    update _ = keyHold . stepGame
 
     main :: IO ()
     main = do

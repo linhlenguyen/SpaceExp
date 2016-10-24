@@ -21,8 +21,8 @@ movementBox
     bgHeight :: Float
     bgHeight = 480
 
-    bgPicture :: SpriteResource -> Picture
-    bgPicture sr = pictures [translate 0 0 $ screenBG sr]
+    bgPicture :: Point -> SpriteResource -> Picture
+    bgPicture (x,y) sr = pictures [translate x y $ screenBG sr]
       --translate bgWidth (-bgHeight) $ screenBG sr]
       --translate 0 (-bgHeight) $ screenBG sr,
       --translate bgWidth 0 $ screenBG sr]

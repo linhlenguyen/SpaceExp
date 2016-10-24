@@ -50,13 +50,14 @@ accelerateShip
     nextSprite :: SpriteTag -> SpriteTag
     nextSprite s = s
 
-    accelerateShip :: Ship -> Ship
-    accelerateShip ship = ship'
+    accelerateShip :: Ship -> (Ship,Gloss.Point)
+    accelerateShip ship = (ship',bgShift)
       where pos = s_position ship
             vv = s_velocityVector ship
             av = s_accelerationVector ship
             vv' = velocityDecay $ newVelocityVector 120 gravityVector $ newVelocityVector (s_maxSpeed ship) av vv
-            pos' = newPos pos vv'
+            (pos',bounded) = newPos pos vv'
+            bgShift = if bounded then vv' else (0,0)
             ship' = ship { s_position = pos', s_velocityVector = vv' }
 
     drawVelocityVector :: Ship -> Gloss.Path

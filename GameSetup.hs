@@ -2,10 +2,7 @@ module GameSetup(
 window,
 background,
 fps,
-initialState,
-decayAmount,
-gravityVector,
-movementBox
+initialState
 )
   where
     import qualified Graphics.Gloss as Gloss
@@ -24,6 +21,7 @@ movementBox
     initialState = WorldState {
       ws_player = newShip,
       ws_moon = newMoon,
+      ws_backgroundPos = (0,0),
       ws_keyPressed = []
     }
 
@@ -31,12 +29,3 @@ movementBox
 
     screen :: (Int, Int)
     screen = (720, 480)
-
-    decayAmount :: Float
-    decayAmount = 0.25::Float
-
-    gravityVector :: VelocityVector
-    gravityVector = (0, 0)
-
-    movementBox :: (Float, Float)
-    movementBox = (360,240)

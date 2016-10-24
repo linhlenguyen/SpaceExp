@@ -13,13 +13,14 @@ gravityVector
     radToDegree :: Float -> Float
     radToDegree rad = rad / pi * 180
 
-    newPos :: Gloss.Point -> VelocityVector -> Gloss.Point
-    newPos (x,y) (vx,vy) = (newX, newY)
+    newPos :: Gloss.Point -> VelocityVector -> (Gloss.Point, Bool)
+    newPos (x,y) (vx,vy) = ((newX, newY),bounded)
       where (bx, by) = movementBox
             x' = x + vx
-            newX = if isAtRight x' then bx/2 else if isAtLeft x' then -bx/2 else x'
+            (newX,boundedX) = if isAtRight x' then (bx/2,True) else if isAtLeft x' then (-bx/2,True) else (x',False)
             y' = y + vy
-            newY = if isAtTop y' then by/2 else if isAtBottom y' then -by/2 else y'
+            (newY,boundedY) = if isAtTop y' then (by/2,True) else if isAtBottom y' then (-by/2,True) else (y',False)
+            bounded = boundedX || boundedY
 
     decayAmount :: Float
     decayAmount = 0.25::Float
