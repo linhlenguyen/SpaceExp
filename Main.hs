@@ -11,16 +11,20 @@ module Main(main)
     import Data.Ship
     import Controls
     import Data.StarField
+    import Data.Moon
 
     stepGame :: WorldState -> WorldState
     stepGame ws = ws'
       where player = ws_player ws
             (player',(shiftX,shiftY)) = accelerateShip player
             (bgx, bgy) = ws_backgroundPos ws
-            bgPos' = (bgx - shiftX, bgy - shiftY)
-            bgPos'' = updateBGPosition bgPos'
+            bgPos = updateBGPosition (bgx - shiftX, bgy - shiftY)
+            moon = ws_moon ws
+            (mx, my) = m_position moon
+            mPos = (mx - shiftX, my - shiftY)
             ws' = ws { ws_player = player',
-                       ws_backgroundPos = bgPos''}
+                       ws_backgroundPos = bgPos,
+                       ws_moon = moon { m_position = mPos }}
 
     update :: Float -> WorldState -> WorldState
     update _ = keyHold . stepGame

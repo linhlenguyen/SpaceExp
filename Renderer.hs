@@ -12,6 +12,6 @@ renderGame
     renderGame :: SpriteResource -> WorldState -> Picture
     renderGame sr ws = pictures $
       --sr!Background:
-      --render (ws_moon ws) sr :
+      render (ws_moon ws) sr :
       render (ws_player ws) sr :
       bgPicture (ws_backgroundPos ws) sr : []
