@@ -22,15 +22,15 @@ movementBox
     bgHeight = 480
 
     bgPicture :: SpriteResource -> Picture
-    bgPicture sr = pictures [translate 0 0 $ screenBG sr,
-      translate bgWidth (-bgHeight) $ screenBG sr,
-      translate 0 (-bgHeight) $ screenBG sr,
-      translate bgWidth 0 $ screenBG sr]
+    bgPicture sr = pictures [translate 0 0 $ screenBG sr]
+      --translate bgWidth (-bgHeight) $ screenBG sr]
+      --translate 0 (-bgHeight) $ screenBG sr,
+      --translate bgWidth 0 $ screenBG sr]
 
     screenBG :: SpriteResource -> Picture
-    screenBG sr = pictures [translate (-bgWidth/2) (bgHeight/2) $ starTile sr,
-      translate 0 (bgHeight/2) $ starTile sr,
-      translate (-bgWidth/2) 0 $ starTile sr,
+    screenBG sr = pictures [translate bgWidth 0 $ starTile sr,
+      translate 0 bgHeight $ starTile sr,
+      translate bgWidth bgHeight $ starTile sr,
       translate 0 0 $ starTile sr]
 
     starTile :: SpriteResource -> Picture
