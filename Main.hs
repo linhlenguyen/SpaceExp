@@ -10,6 +10,7 @@ module Main(main)
     import qualified Data.Map.Lazy as Map
     import Data.Ship
     import Controls
+    import Data.StarField
 
     stepGame :: WorldState -> WorldState
     stepGame ws = ws'
@@ -17,8 +18,9 @@ module Main(main)
             (player',(shiftX,shiftY)) = accelerateShip player
             (bgx, bgy) = ws_backgroundPos ws
             bgPos' = (bgx - shiftX, bgy - shiftY)
+            bgPos'' = updateBGPosition bgPos'
             ws' = ws { ws_player = player',
-                       ws_backgroundPos = bgPos'}
+                       ws_backgroundPos = bgPos''}
 
     update :: Float -> WorldState -> WorldState
     update _ = keyHold . stepGame

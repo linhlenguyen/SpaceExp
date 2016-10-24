@@ -5,7 +5,8 @@ isAtRight,
 isAtLeft,
 starFieldSpriteMap,
 bgPicture,
-movementBox
+movementBox,
+updateBGPosition
 )
   where
     import Graphics.Gloss
@@ -15,26 +16,47 @@ movementBox
     starFieldSpriteMap :: [(SpriteTag, FilePath)]
     starFieldSpriteMap = [("StarField", "bmp/bg.bmp")]
 
+    screenWidth :: Float
+    screenWidth = 720
+
+    screenHeight :: Float
+    screenHeight = 480
+
     bgWidth :: Float
-    bgWidth = 720
+    bgWidth = screenWidth*2
 
     bgHeight :: Float
-    bgHeight = 480
+    bgHeight = screenHeight*2
+
+    atTop :: Point -> Bool
+    atTop (x,y) = y < -screenHeight
+
+    atBottom :: Point -> Bool
+    atBottom (x,y) = y > 0
+
+    atLeft :: Point -> Bool
+    atLeft (x,y) = x > 0
+
+    atRight :: Point -> Bool
+    atRight (x,y) = x < -screenWidth
+
+    updateBGPosition :: Point -> Point
+    updateBGPosition c@(x,y) = (x',y')
+      where
+        y' = if atTop c then 0 else if atBottom c then -screenHeight else y
+        x' = if atRight c then 0 else if atLeft c then -screenWidth else x
 
     bgPicture :: Point -> SpriteResource -> Picture
     bgPicture (x,y) sr = pictures [translate x y $ screenBG sr]
-      --translate bgWidth (-bgHeight) $ screenBG sr]
-      --translate 0 (-bgHeight) $ screenBG sr,
-      --translate bgWidth 0 $ screenBG sr]
 
     screenBG :: SpriteResource -> Picture
-    screenBG sr = pictures [translate bgWidth 0 $ starTile sr,
-      translate 0 bgHeight $ starTile sr,
-      translate bgWidth bgHeight $ starTile sr,
+    screenBG sr = pictures [translate screenWidth 0 $ starTile sr,
+      translate 0 screenHeight $ starTile sr,
+      translate screenWidth screenHeight $ starTile sr,
       translate 0 0 $ starTile sr]
 
     starTile :: SpriteResource -> Picture
-    starTile sr = pictures [ color white $ rectangleWire bgWidth bgHeight,
+    starTile sr = pictures [ color white $ rectangleWire screenWidth screenHeight,
       sr!"StarField"]
 
     movementBox :: (Float, Float)
