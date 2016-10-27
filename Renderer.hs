@@ -13,7 +13,7 @@ renderGame
     renderGame :: SpriteResource -> WorldState -> Picture
     renderGame sr ws = pictures $
       --sr!Background:
+      bgPicture (ws_backgroundPos ws) sr :
       (color white $ line $ ws_gravityVector ws) :
-      render (ws_moon ws) sr :
       render (ws_player ws) sr :
-      bgPicture (ws_backgroundPos ws) sr : []
+      render (ws_moon ws) sr : []

@@ -1,11 +1,15 @@
 # SpaceJump
 A game in Haskell
 ---
+A work in progress. 
+To build and run the game, I recommened using GHC and cabal sandox. 
 
-## TODO
-* Animatable objects
-* Collision detection using SAT
-* Scrolling background
+```
+cabal sandbox init
+cabal install gloss
+cabal build
+cabal run
+```
 
 ## Useful links
 - SAT Collision detection
