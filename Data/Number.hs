@@ -1,5 +1,6 @@
-module Number(
-numberToPicture
+module Data.Number(
+numberToPicture,
+numberBitmapMap
 )
   where
     import Graphics.Gloss
@@ -19,11 +20,11 @@ numberToPicture
       ("9", "bmp/9.bmp"),
       ("0", "bmp/0.bmp")]
 
-    type Index = Int
+    type Index = Float
 
-    numberToPicture :: SpriteResource -> Index -> Int -> Picture
-    numberToPicture n sr = pictures $ numberToPicture' sr 0 $ show n
+    numberToPicture :: SpriteResource -> Int -> Picture
+    numberToPicture sr n = pictures $ numberToPicture' sr 0 $ show n
 
     numberToPicture' :: SpriteResource -> Index -> String -> [Picture]
     numberToPicture' _ _ [] = []
-    numberToPicture' sr index (x:xs) = translate index*9 0 sr!x : numberToPicture' sr (index+1) xs
+    numberToPicture' sr index (x:xs) = translate (index*9) 0 (sr!(x:[])) : numberToPicture' sr (index+1) xs

@@ -9,9 +9,10 @@ SpriteTag
     import Data.Ship
     import Data.Moon
     import Data.StarField
+    import Data.Number
 
     allSprites :: [(SpriteTag, FilePath)]
-    allSprites = shipSpriteMap ++ moonSpriteMap ++ starFieldSpriteMap
+    allSprites = shipSpriteMap ++ moonSpriteMap ++ starFieldSpriteMap ++ numberBitmapMap
 
     loadResource :: IO [(SpriteTag, Gloss.Picture)]
     loadResource = loadResource' allSprites
