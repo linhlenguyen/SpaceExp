@@ -12,6 +12,7 @@ accelerateShip
     import Physics.Physics
     import Physics.Collision
     import Data.Renderable
+    import Data.Number
 
     shipSpriteMap :: [(SpriteTag, FilePath)]
     shipSpriteMap = [("Ship", "bmp/ship2.bmp")]
@@ -45,7 +46,8 @@ accelerateShip
       position ship = s_position ship
       direction ship = s_direction ship
       sprite ship = nextSprite $ s_currentSprite ship
-      renderAdditional ship sr = [color white $ line $ drawVelocityVector ship]
+      renderAdditional ship sr = pictures $ color white $ line $ drawVelocityVector ship :
+
 
     nextSprite :: SpriteTag -> SpriteTag
     nextSprite s = s

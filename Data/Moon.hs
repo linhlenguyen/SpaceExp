@@ -25,7 +25,7 @@ moonSpriteMap
       position moon = m_position moon
       direction moon = m_direction moon
       sprite moon = m_sprite moon
-      {-renderAdditional moon sr = [c]
+      {-renderAdditional moon sr = c
         where c = color white $ translate x y $ circle radius
               (x, y) = m_position moon
               (CollisionCircle (_,_) radius) = m_collisionPath moon-}
