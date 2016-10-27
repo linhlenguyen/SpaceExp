@@ -18,7 +18,8 @@ moonSpriteMap
       m_position :: Gloss.Point,
       m_sprite :: SpriteTag,
       m_collisionPath :: CollisionPath,
-      m_direction :: Float
+      m_direction :: Float,
+      m_rotationSpeed :: Float
     }
 
     instance Renderable Moon where
@@ -35,5 +36,6 @@ moonSpriteMap
       m_position = (0,-250),
       m_sprite = "Moon",
       m_collisionPath = CollisionCircle (0,-350) 118,
-      m_direction = 0
+      m_direction = 0,
+      m_rotationSpeed = 0.01::Float
     }

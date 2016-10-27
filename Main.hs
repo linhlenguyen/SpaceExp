@@ -22,14 +22,15 @@ module Main(main)
             moon = ws_moon ws
             (mx, my) = m_position moon
             mPos = (mx - shiftX, my - shiftY)
-            gradient = (py - my)/(px - mx)
-            gravityVector = (px + 10, py + 10*gradient)
+            (gx, gy) = ((mx - px),(my - py))
+            distanceFromMoon = sqrt ((mx - px)^2 + (my-py)^2)
+            gravity = (px + gx*(2/distanceFromMoon), py + gy*(2/distanceFromMoon))
             (player',(shiftX,shiftY)) = accelerateShip (0,0) player
             moonDirection = m_direction moon
             ws' = ws { ws_player = player',
                        ws_backgroundPos = bgPos,
-                       ws_moon = moon { m_position = mPos, m_direction = moonDirection + 0.02 },
-                       ws_gravityVector = [(px,py),gravityVector]}
+                       ws_moon = moon { m_position = mPos, m_direction = moonDirection + m_rotationSpeed moon },
+                       ws_gravityVector = [(px,py),gravity]}
 
     update :: Float -> WorldState -> WorldState
     update _ = keyEventHandling . stepGame
