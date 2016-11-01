@@ -49,8 +49,8 @@ accelerateShip
       direction ship = s_direction ship
       sprite ship = nextSprite $ s_currentSprite ship
       renderAdditional ship sr = [
-        translate (fst drawPosition) (snd drawPosition + 32) $ numberToPicture sr (fst position),
-        translate (fst drawPosition) (snd drawPosition + 41) $ numberToPicture sr (snd position),
+        translate (fst drawPosition -8) (snd drawPosition - 32) $ numberToPicture sr (fst position),
+        translate (fst drawPosition -8) (snd drawPosition - 41) $ numberToPicture sr (snd position),
         color white $ line $ drawVelocityVector ship]
         where position = r_position ship
               drawPosition = s_position ship

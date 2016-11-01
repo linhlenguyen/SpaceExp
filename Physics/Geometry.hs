@@ -1,4 +1,4 @@
-module Geometry(
+module Physics.Geometry(
 intersectPoint,
 distAtoCLine
 )
