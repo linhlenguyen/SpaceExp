@@ -24,7 +24,7 @@ module Main(main)
             mPos = (mx - shiftX, my - shiftY)
             (gx, gy) = ((mx - px),(my - py))
             distanceFromMoon = sqrt ((mx - px)^2 + (my-py)^2)
-            gravity = (px + gx*(2/distanceFromMoon), py + gy*(2/distanceFromMoon))
+            gravity = (px + gx* (min 0.1 (100/distanceFromMoon)), py + gy*(min 0.1 (100/distanceFromMoon)))
             (player',(shiftX,shiftY)) = accelerateShip (0,0) player
             moonDirection = m_direction moon
             ws' = ws { ws_player = player',

@@ -23,7 +23,7 @@ gravityVector
             bounded = boundedX || boundedY
 
     decayAmount :: Float
-    decayAmount = 0::Float
+    decayAmount = 0.25::Float
 
     gravityVector :: VelocityVector
     gravityVector = (0, 0)
