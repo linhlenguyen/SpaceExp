@@ -20,5 +20,5 @@ Renderable(..)
               spriteTag = sprite a
               bmp = sr!spriteTag
               p = translate x y $ rotate degree $ bmp
-      renderAdditional :: a -> SpriteResource -> [Picture]
+      renderAdditional :: a -> SpriteResource -> [Picture] --have to be a list to make default implementation returns an empty list
       renderAdditional _ _ = []

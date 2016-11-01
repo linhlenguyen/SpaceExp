@@ -12,12 +12,14 @@ accelerateShip
     import Physics.Physics
     import Physics.Collision
     import Data.Renderable
+    import Data.Number
 
     shipSpriteMap :: [(SpriteTag, FilePath)]
     shipSpriteMap = [("Ship", "bmp/ship2.bmp")]
 
     data Ship = Ship {
       s_position :: Gloss.Point,
+      r_position :: Gloss.Point,
       s_direction :: Float, -- 0 -> 360
       s_accelerationVector :: VelocityVector,
       s_velocityVector :: VelocityVector,
@@ -31,6 +33,7 @@ accelerateShip
     newShip :: Ship
     newShip = Ship {
       s_position = (0, 0),
+      r_position = (0, 0),
       s_currentSprite = "Ship",
       s_direction = pi/2,
       s_accelerationVector = (0, 0),
@@ -45,7 +48,12 @@ accelerateShip
       position ship = s_position ship
       direction ship = s_direction ship
       sprite ship = nextSprite $ s_currentSprite ship
-      renderAdditional ship sr = [color white $ line $ drawVelocityVector ship]
+      renderAdditional ship sr = [
+        translate (fst drawPosition) (snd drawPosition + 32) $ numberToPicture sr (fst position),
+        translate (fst drawPosition) (snd drawPosition + 41) $ numberToPicture sr (snd position),
+        color white $ line $ drawVelocityVector ship]
+        where position = r_position ship
+              drawPosition = s_position ship
 
     nextSprite :: SpriteTag -> SpriteTag
     nextSprite s = s
@@ -53,12 +61,13 @@ accelerateShip
     accelerateShip :: VelocityVector -> Ship -> (Ship,Gloss.Point)
     accelerateShip gravity ship = (ship',bgShift)
       where pos = s_position ship
+            rpos = r_position ship
             vv = s_velocityVector ship
             av = s_accelerationVector ship
             vv' = velocityDecay $ newVelocityVector 120 gravity $ newVelocityVector (s_maxSpeed ship) av vv
             (pos',bounded) = newPos pos vv'
             bgShift = if bounded then vv' else (0,0)
-            ship' = ship { s_position = pos', s_velocityVector = vv' }
+            ship' = ship { s_position = pos', s_velocityVector = vv', r_position = (fst rpos + fst vv', snd rpos + snd vv') }
 
     drawVelocityVector :: Ship -> Gloss.Path
     drawVelocityVector ship = velocityPath
