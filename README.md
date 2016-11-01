@@ -1,4 +1,4 @@
-# SpaceJump
+# SpaceExp
 A game in Haskell
 ---
 A work in progress. 
