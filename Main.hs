@@ -12,6 +12,9 @@ module Main(main)
     import Controls
     import Data.StarField
     import Data.Moon
+    
+    --Need to re-design game loop
+    --Input -> Update WorldState -> Filter Visible Element -> Render Screen
 
     stepGame :: WorldState -> WorldState
     stepGame ws = ws'
