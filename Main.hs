@@ -12,9 +12,13 @@ module Main(main)
     import Controls
     import Data.StarField
     import Data.Moon
-    
+
     --Need to re-design game loop
     --Input -> Update WorldState -> Filter Visible Element -> Render Screen
+
+    --Introduce controllable type
+    --Move viewport and re-render screen accordingly
+    --Refactor stepGame using non static type class or something similar
 
     stepGame :: WorldState -> WorldState
     stepGame ws = ws'
