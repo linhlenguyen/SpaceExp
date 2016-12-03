@@ -13,6 +13,12 @@ module Main(main)
     import Data.StarField
     import Data.Moon
 
+    --Todo
+    --Finish collision detection algorithm, clustering and individual objects
+    --Animated sprites
+    --Play animation, e.g explosion, rockets...
+    --Main menu, and scoreboard...
+
     stepGame :: WorldState -> WorldState
     stepGame ws = ws'
       where player = ws_player ws
