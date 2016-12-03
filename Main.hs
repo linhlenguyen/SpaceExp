@@ -19,6 +19,13 @@ module Main(main)
     --Play animation, e.g explosion, rockets...
     --Main menu, and scoreboard...
 
+    --Need to re-design game loop
+    --Input -> Update WorldState -> Filter Visible Element -> Render Screen
+
+    --Introduce controllable type
+    --Move viewport and re-render screen accordingly
+    --Refactor stepGame using non static type class or something similar
+
     stepGame :: WorldState -> WorldState
     stepGame ws = ws'
       where player = ws_player ws

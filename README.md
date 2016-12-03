@@ -1,8 +1,8 @@
-# SpaceJump
+# SpaceExp
 A game in Haskell
 ---
-A work in progress. 
-To build and run the game, I recommened using GHC and cabal sandox. 
+A work in progress.
+To build and run the game, I recommend using GHC and cabal sandbox.
 
 ```
 cabal sandbox init
