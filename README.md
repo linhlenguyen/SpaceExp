@@ -20,4 +20,4 @@ cabal run
 - [Haskell Gloss Basics](http://andrew.gibiansky.com/blog/haskell/haskell-gloss/)
 - [Games on Github](https://github.com/leereilly/games)
 
-![Cover](https://github.com/linhlenguyen/SpaceJump/blob/master/bmp/cover.jpg)
+![Cover](https://github.com/linhlenguyen/SpaceJump/blob/master/bmp/test.jpg)
