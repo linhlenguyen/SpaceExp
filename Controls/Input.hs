@@ -1,4 +1,4 @@
-module Controls(
+module Controls.Input(
 handleKeyPress,
 keyEventHandling
 )

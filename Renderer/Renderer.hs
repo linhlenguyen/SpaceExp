@@ -1,4 +1,4 @@
-module Renderer(
+module Renderer.Renderer(
 renderGame
 )
   where
@@ -7,7 +7,7 @@ renderGame
     import Data.Ship
     import Data.Moon
     import Data.WorldState
-    import Data.Renderable
+    import TypeClasses.Renderable
     import Data.StarField
 
     renderGame :: SpriteResource -> WorldState -> Picture

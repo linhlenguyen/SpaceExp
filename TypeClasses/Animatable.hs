@@ -1,4 +1,4 @@
-module Data.Animatable(
+module TypeClasses.Animatable(
 Animatable(..)
 )
   where

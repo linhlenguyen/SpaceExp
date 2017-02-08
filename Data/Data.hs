@@ -10,3 +10,4 @@ VelocityVector
     type SpriteTag = String
     type SpriteResource = Map.Map SpriteTag Gloss.Picture
     type VelocityVector = (Float, Float) -- vx, vy
+    type ViewPort = Gloss.Point

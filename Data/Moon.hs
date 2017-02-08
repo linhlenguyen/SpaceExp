@@ -9,7 +9,8 @@ moonSpriteMap
     import qualified Graphics.Gloss.Data.Picture as Gloss
     import Physics.Collision
     import Data.Data
-    import Data.Renderable
+    import TypeClasses.Renderable
+    import TypeClasses.Moveable
 
     moonSpriteMap :: [(SpriteTag, FilePath)]
     moonSpriteMap = [("Moon", "bmp/moon.bmp")]
@@ -30,6 +31,12 @@ moonSpriteMap
         where c = color white $ translate x y $ circle radius
               (x, y) = m_position moon
               (CollisionCircle (_,_) radius) = m_collisionPath moon-}
+
+    instance Moveable Moon where
+      update moon = moon'
+        where direction = m_direction moon
+              rotationSpeed = m_rotationSpeed moon
+              moon' = moon { m_direction = direction + rotationSpeed }
 
     newMoon :: Moon
     newMoon = Moon {

@@ -11,7 +11,7 @@ accelerateShip
     import Data.Data
     import Physics.Physics
     import Physics.Collision
-    import Data.Renderable
+    import TypeClasses.Renderable
     import Data.Number
 
     shipSpriteMap :: [(SpriteTag, FilePath)]

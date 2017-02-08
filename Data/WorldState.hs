@@ -12,5 +12,6 @@ WorldState(..)
       ws_moon :: Moon,
       ws_backgroundPos :: Gloss.Point,
       ws_keyPressed :: [Gloss.Key],
-      ws_gravityVector :: [Gloss.Point]
+      ws_gravityVector :: [Gloss.Point],
+      ws_cameraPosition :: Gloss.Point
     }

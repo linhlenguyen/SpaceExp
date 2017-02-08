@@ -1,4 +1,4 @@
-module Data.Renderable(
+module TypeClasses.Renderable(
 Renderable(..)
 )
   where

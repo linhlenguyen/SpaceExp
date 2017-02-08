@@ -1,4 +1,4 @@
-module Resources(
+module Renderer.Resources(
 loadResource,
 SpriteTag
 )
